@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CryptoWallet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">CryptoWallet</div>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span id="username">Usuário</span>
+        </div>
+        <nav>
+            <a href="#" class="active"><i class="fas fa-wallet"></i> Carteiras</a>
+            <a href="#"><i class="fas fa-exchange-alt"></i> Transferências</a>
+            <a href="#"><i class="fas fa-history"></i> Histórico</a>
+        </nav>
+        <button class="logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1><i class="fas fa-chart-line"></i> Dashboard</h1>
+            <div class="total-balance">
+                <span>Saldo Total:</span>
+                <span id="totalBalance">$0.00</span>
+            </div>
+        </div>
+
+        <section class="card">
+            <h2><i class="fas fa-wallet"></i> Minhas Carteiras</h2>
+            <div id="carteiras" class="grid-container"></div>
+            
+            <div class="form-group">
+                <h3><i class="fas fa-plus-circle"></i> Criar Nova Carteira</h3>
+                <input type="text" id="nomeCarteira" placeholder="Nome da carteira">
+                <button onclick="criarCarteira()" class="btn-primary">Criar Carteira</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class="fab fa-bitcoin"></i> Criptomoedas</h2>
+            <div id="criptomoedas" class="grid-container"></div>
+            
+            <div class="form-group">
+                <h3><i class="fas fa-coins"></i> Adicionar Criptomoeda</h3>
+                <select id="carteiraSelect" class="form-control"></select>
+                <select id="criptoSelect" class="form-control"></select>
+                <input type="number" id="quantidadeCripto" placeholder="Quantidade" class="form-control">
+                <button onclick="adicionarCripto()" class="btn-primary">Adicionar</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class="fas fa-exchange-alt"></i> Transferência</h2>
+            <div class="form-group">
+                <label>Origem:</label>
+                <select id="carteiraOrigemSelect" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label>Destino:</label>
+                <select id="carteiraDestinoSelect" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label>Valor (USD):</label>
+                <input type="number" id="valorTransferencia" placeholder="Valor em dólar" class="form-control">
+            </div>
+            <button onclick="transferir()" class="btn-primary">Transferir</button>
+        </section>
+    </div>
+
+    <script src="js/protect.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
